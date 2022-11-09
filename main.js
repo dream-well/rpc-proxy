@@ -9,7 +9,7 @@ const app = express();
 const PORT = 8545;
 const RPC_URL = 'http://localhost:8546';
 
-app.use(morgan("dev"));
+app.use(morgan("combined"));
 
 app.use(createProxyMiddleware({
     target: RPC_URL,
