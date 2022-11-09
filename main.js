@@ -10,12 +10,12 @@ const app = express();
 
 const PORT = 8545;
 const RPC_URL = 'http://localhost:8546';
-const ALLOW = '185.246.188.105';
+const allowList = ['185.246.188.105', '185.135.76.89'];
 
 app.use(AccessControl({
     mode: 'allow',
 	denys: [],
-	allows: [ALLOW],
+	allows: allowList,
 	forceConnectionAddress: false,
 	log: function(clientIp, access) {
 		console.log(clientIp + (access ? ' accessed.' : ' denied.'));
