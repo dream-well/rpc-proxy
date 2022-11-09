@@ -13,7 +13,7 @@ const RPC_URL = 'http://localhost:8546';
 const ALLOW = '185.246.188.105';
 
 app.use(AccessControl({
-    mode: 'deny',
+    mode: 'allow',
 	denys: [],
 	allows: [ALLOW],
 	forceConnectionAddress: false,
