@@ -7,7 +7,9 @@ require('dotenv').config()
 const app = express();
 
 const PORT = 8545;
-const RPC_URL = process.env.RPC_URL;
+const RPC_URL = 'http://localhost:8546';
+
+app.use(morgan("dev"));
 
 app.use(createProxyMiddleware({
     target: RPC_URL,
