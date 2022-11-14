@@ -9,7 +9,7 @@ require('dotenv').config()
 const app = express();
 
 const PORT = 8545;
-const RPC_URL = 'http://localhost:8546';
+const RPC_URL = 'http://localhost:8544';
 const allowList = ['185.246.188.105', '185.135.76.89'];
 
 // app.use(AccessControl({
