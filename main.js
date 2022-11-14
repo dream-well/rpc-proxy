@@ -12,19 +12,19 @@ const PORT = 8545;
 const RPC_URL = 'http://localhost:8546';
 const allowList = ['185.246.188.105', '185.135.76.89'];
 
-app.use(AccessControl({
-    mode: 'allow',
-	denys: [],
-	allows: allowList,
-	forceConnectionAddress: false,
-	log: function(clientIp, access) {
-		console.log(clientIp + (access ? ' accessed.' : ' denied.'));
-	},
+// app.use(AccessControl({
+//     mode: 'allow',
+// 	denys: [],
+// 	allows: allowList,
+// 	forceConnectionAddress: false,
+// 	log: function(clientIp, access) {
+// 		console.log(clientIp + (access ? ' accessed.' : ' denied.'));
+// 	},
 
-	statusCode: 401,
-	redirectTo: '',
-	message: 'Unauthorized'
-}))
+// 	statusCode: 401,
+// 	redirectTo: '',
+// 	message: 'Unauthorized'
+// }))
 
 app.use(morgan("combined"));
 
