@@ -1,0 +1,17 @@
+
+version: '3'
+
+services:
+  monero-proxy:
+    build: 
+      context: .
+    command: node main.js
+    ports:
+      - 18081:18081
+    environment: 
+      - TARGET=http://monero.dyni.net:18081
+      - PORT=18081
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    restart: unless-stopped

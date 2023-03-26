@@ -1,39 +1,22 @@
 const express = require('express');
 const morgan = require("morgan");
 const { createProxyMiddleware } = require('http-proxy-middleware');
-var AccessControl = require('express-ip-access-control');
 
 require('dotenv').config()
 
 // Creating express server
 const app = express();
 
-const PORT = 8545;
-const RPC_URL = 'http://localhost:8544';
-const allowList = ['185.246.188.105', '185.135.76.89'];
+const PORT = process.env.PORT || 8545;
+const TARGET = process.env.TARGET ?? 'http://localhost:8544';
 
-// app.use(AccessControl({
-//     mode: 'allow',
-// 	denys: [],
-// 	allows: allowList,
-// 	forceConnectionAddress: false,
-// 	log: function(clientIp, access) {
-// 		console.log(clientIp + (access ? ' accessed.' : ' denied.'));
-// 	},
-
-// 	statusCode: 401,
-// 	redirectTo: '',
-// 	message: 'Unauthorized'
-// }))
+console.log(TARGET);
 
 app.use(morgan("combined"));
 
 app.use(createProxyMiddleware({
-    target: RPC_URL,
+    target: TARGET,
     changeOrigin: true,
-    // pathRewrite: {
-    //     [`^/weather`]: '',
-    // },
 }));
 
 app.listen(PORT, () => {
