@@ -7,8 +7,8 @@ require('dotenv').config()
 // Creating express server
 const app = express();
 
-const PORT = process.env.PORT || 8545;
-const TARGET = process.env.TARGET ?? 'http://localhost:8544';
+const PORT = process.env.PORT || 18081;
+const TARGET = process.env.TARGET ?? 'http://monero.dyni.net:18081';
 
 console.log(TARGET);
 
