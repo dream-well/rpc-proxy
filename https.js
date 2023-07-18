@@ -26,7 +26,7 @@ app.use(createProxyMiddleware({
 }));
 
 
-https.createServer(httpsOptions, app).listen(443, (err) => {
+https.createServer(httpsOptions, app).listen(port, (err) => {
   if (err) throw err;
   console.log(`> Server started on https://${process.env.DOMAIN}:${port}`);
 });
