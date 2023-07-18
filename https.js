@@ -3,7 +3,7 @@ const fs = require("fs");
 const dotenv = require('dotenv');
 dotenv.config();
 
-
+const morgan = require("morgan");
 const express = require('express');
 
 // Creating express server
